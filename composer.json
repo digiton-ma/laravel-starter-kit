@@ -21,6 +21,7 @@
         "joshembling/image-optimizer": "^1.4",
         "laravel/framework": "^11.9",
         "laravel/tinker": "^2.9",
+        "sakanjo/laravel-easy-enum": "^1.0",
         "spatie/laravel-responsecache": "^7.6",
         "spatie/laravel-sitemap": "^7.2"
     },

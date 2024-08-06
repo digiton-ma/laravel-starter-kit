@@ -1,0 +1,12 @@
+<?php
+
+namespace {{ namespace }};
+
+use SaKanjo\EasyEnum;
+
+enum {{ class }}
+{
+    use EasyEnum;
+
+    //
+}

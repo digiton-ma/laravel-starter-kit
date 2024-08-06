@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c40bb19470ce253b480a26606820d0cd",
+    "content-hash": "5e2d155111d42e02282f248da9bc45b1",
     "packages": [
         {
             "name": "anourvalar/eloquent-serialize",
@@ -5641,6 +5641,64 @@
                 }
             ],
             "time": "2024-02-26T18:08:49+00:00"
+        },
+        {
+            "name": "sakanjo/laravel-easy-enum",
+            "version": "v1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sakanjo/laravel-easy-enum.git",
+                "reference": "d531f465e261cfb402642132e866a189a561a6fd"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sakanjo/laravel-easy-enum/zipball/d531f465e261cfb402642132e866a189a561a6fd",
+                "reference": "d531f465e261cfb402642132e866a189a561a6fd",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "^10.0 || ^11.0",
+                "php": "^8.2"
+            },
+            "require-dev": {
+                "laravel/pint": "^1.1",
+                "orchestra/testbench": "^9.0",
+                "pestphp/pest": "^2.3",
+                "phpstan/phpstan": "^1.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "SaKanjo\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Salah Kanjo",
+                    "email": "dev.salah.kanjo@gmail.com"
+                }
+            ],
+            "description": "Easily work with enum.",
+            "keywords": [
+                "enums",
+                "laravel",
+                "laravel-easy"
+            ],
+            "support": {
+                "issues": "https://github.com/sakanjo/laravel-easy-enum/issues",
+                "source": "https://github.com/sakanjo/laravel-easy-enum/tree/v1.0.1"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/sakanjo",
+                    "type": "github"
+                }
+            ],
+            "time": "2024-07-24T01:09:42+00:00"
         },
         {
             "name": "spatie/browsershot",
