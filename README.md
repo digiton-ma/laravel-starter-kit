@@ -23,6 +23,7 @@ Main packages used in this project:
 - [joshembling/image-optimizer](https://github.com/joshembling/image-optimizer)
 - [hasnayeen/themes](https://github.com/hasnayeen/themes)
 - [awcodes/filament-quick-create](https://github.com/awcodes/filament-quick-create)
+- [filament/spatie-laravel-media-library-plugin:"^3.2"](https://github.com/filamentphp/spatie-laravel-media-library-plugin)
 
 Dev packages used in this project:
 - Laravel Debugbar
