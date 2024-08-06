@@ -106,6 +106,16 @@ using laravel-debugbar for debugging
 ### IDE Integration
 using laravel-ide-helper for better IDE integration
 
+---
+
+## Upcoming Features
+- [ ] Payments Management: filament resource and front end urls for payments management or using plugins.
+- [ ] Social Sign-in: using Google, Facebook, Twitter, and Github.
+- [ ] Social Sharing: to easily share links from the project to social media.
+- [ ] Social Media posts Integration: to get posts from social media accounts.
+- [ ] Better Settings Management: to manage settings for different parts of the project, website information, email configs, social media links, navigation management and builders...
+- [ ] Standard tests for all features using pest, like url tests, form tests and more.
+
 ## Contributing
 
 Thank you for considering contributing to this starter kit! The contribution guide can be found in the [CONTRIBUTING.md](.github/CONTRIBUTING.md).
