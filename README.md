@@ -18,10 +18,15 @@ Main packages used in this project:
 - Spatie Media Library
 - Spatie Query Builder
 - Spatie Laravel Activity Log
+- [aymanalhattami/filament-date-scopes-filter](https://github.com/aymanalhattami/filament-date-scopes-filter)
+- [aymanalhattami/filament-slim-scrollbar](https://github.com/aymanalhattami/filament-slim-scrollbar)
+- [joshembling/image-optimizer](https://github.com/joshembling/image-optimizer)
 
 Dev packages used in this project:
 - Laravel Debugbar
 - Laravel ide-helper
+- Laravel pint
+- Laravel pest
 
 ## Main Features
 
