@@ -1,11 +1,11 @@
 <p align="center">
     <a href="https://digiton.ma" target="_blank">
-        <img src="https://avatars.githubusercontent.com/u/108480560?s=200&v=4" width="400" alt="Digiton Logo">
+        <img src="https://avatars.githubusercontent.com/u/108480560?s=200&v=4" width="150" alt="Digiton Logo">
     </a>
 </p>
 
 <p align="center">
-<a href="https://github.com/digiton-ma/laravel-starter-kit/actions"><img src="https://github.com/digiton-ma/laravel-starter-kit/workflows/tests/badge.svg" alt="Build Status"></a>
+<a href="https://github.com/digiton-ma/laravel-starter-kit/actions"><img src="https://github.com/digiton-ma/laravel-starter-kit/workflows/run-tests/badge.svg" alt="Build Status"></a>
 <a href="https://packagist.org/packages/digiton-ma/laravel-starter-kit"><img src="https://img.shields.io/packagist/dt/digiton-ma/laravel-starter-kit" alt="Total Downloads"></a>
 <a href="https://packagist.org/packages/digiton-ma/laravel-starter-kit"><img src="https://img.shields.io/packagist/v/digiton-ma/laravel-starter-kit" alt="Latest Stable Version"></a>
 <a href="https://packagist.org/packages/digiton-ma/laravel-starter-kit"><img src="https://img.shields.io/packagist/l/digiton-ma/laravel-starter-kit" alt="License"></a>
@@ -50,7 +50,61 @@ You can publish the config file with:
 php artisan vendor:publish --tag="themes-config"
 ```
 
+## Usage
+You can create a new project using composer create-project command:
+
+```bash
+composer create-project digiton-ma/laravel-starter-kit my-project
+```
+then run one of the setup scripts within the project directory:
+
+```bash
+cd my-project # if you are not already in the project directory
+chmod +x ./bin/setup.sh # if you get permission denied error
+./bin/setup.sh 
+#or
+php bin/setup.php
+```
+
 ## Main Features
+
+### FilamentPHP
+FilamentPHP is a Laravel package that provides a simple and elegant way to build admin panels for your Laravel applications.
+
+### Settings Management
+using Spatie Laravel Settings to store settings in the database and retrieve them globally.
+
+### Permissions Management
+using Spatie Permission to manage user permissions and roles.
+
+### Media Management and Optimization
+using Spatie Media Library to manage media files and joshembling/image-optimizer to optimize images.
+
+### Themes Management (for filament panels only)
+using hasnayeen/themes to manage themes for filament panels and aymanalhattami/filament-slim-scrollbar for slim scrollbar.
+
+### Extra forms and tables plugins
+using filamentphp's plugins to add extra forms and tables features.
+
+### SEO Management
+using spatie/laravel-sitemap to generate sitemap...
+
+### Caching Responses
+using spatie/laravel-responsecache to cache responses.
+
+---
+
+### Testing
+using larastan and pest for testing
+
+### Code formatting
+using laravel-pint for code formatting
+
+### Debugging
+using laravel-debugbar for debugging
+
+### IDE Integration
+using laravel-ide-helper for better IDE integration
 
 ## Contributing
 
