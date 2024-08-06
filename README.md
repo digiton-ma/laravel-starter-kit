@@ -1,10 +1,14 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+<p align="center">
+    <a href="https://digiton.ma" target="_blank">
+        <img src="https://avatars.githubusercontent.com/u/108480560?s=200&v=4" width="400" alt="Digiton Logo">
+    </a>
+</p>
 
 <p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+<a href="https://github.com/digiton-ma/laravel-starter-kit/actions"><img src="https://github.com/digiton-ma/laravel-starter-kit/workflows/tests/badge.svg" alt="Build Status"></a>
+<a href="https://packagist.org/packages/digiton-ma/laravel-starter-kit"><img src="https://img.shields.io/packagist/dt/digiton-ma/laravel-starter-kit" alt="Total Downloads"></a>
+<a href="https://packagist.org/packages/digiton-ma/laravel-starter-kit"><img src="https://img.shields.io/packagist/v/digiton-ma/laravel-starter-kit" alt="Latest Stable Version"></a>
+<a href="https://packagist.org/packages/digiton-ma/laravel-starter-kit"><img src="https://img.shields.io/packagist/l/digiton-ma/laravel-starter-kit" alt="License"></a>
 </p>
 
 ## About this project
@@ -12,12 +16,11 @@
 This is a laravel starter kit with all the necessary packages and configurations to start a new project.
 
 Main packages used in this project:
-- FilamentPHP
+- [FilamentPHP](https://filamentphp.com)
 - Spatie Laravel Settings
 - Spatie Permission
 - Spatie Media Library
 - Spatie Query Builder
-- Spatie Laravel Activity Log
 - [aymanalhattami/filament-date-scopes-filter](https://github.com/aymanalhattami/filament-date-scopes-filter)
 - [aymanalhattami/filament-slim-scrollbar](https://github.com/aymanalhattami/filament-slim-scrollbar)
 - [joshembling/image-optimizer](https://github.com/joshembling/image-optimizer)
@@ -27,7 +30,7 @@ Main packages used in this project:
 - [spatie/laravel-sitemap](https://github.com/spatie/laravel-sitemap)
 - [spatie/laravel-responsecache](https://github.com/spatie/laravel-responsecache)
 
-Dev packages used in this project:
+Dev dependencies used in this project:
 - Laravel Debugbar
 - Laravel ide-helper
 - Laravel pint
