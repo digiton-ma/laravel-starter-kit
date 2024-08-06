@@ -21,7 +21,7 @@ Main packages used in this project:
 
 Dev packages used in this project:
 - Laravel Debugbar
-- 
+- Laravel ide-helper
 
 ## Main Features
 
