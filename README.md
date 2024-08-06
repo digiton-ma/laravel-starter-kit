@@ -11,12 +11,17 @@
 
 This is a laravel starter kit with all the necessary packages and configurations to start a new project.
 
+Main packages used in this project:
 - FilamentPHP
 - Spatie Laravel Settings
 - Spatie Permission
 - Spatie Media Library
 - Spatie Query Builder
 - Spatie Laravel Activity Log
+
+Dev packages used in this project:
+- Laravel Debugbar
+- 
 
 ## Main Features
 
