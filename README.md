@@ -24,6 +24,7 @@ Main packages used in this project:
 - [hasnayeen/themes](https://github.com/hasnayeen/themes)
 - [awcodes/filament-quick-create](https://github.com/awcodes/filament-quick-create)
 - [filament/spatie-laravel-media-library-plugin:"^3.2"](https://github.com/filamentphp/spatie-laravel-media-library-plugin)
+- [spatie/laravel-sitemap](https://github.com/spatie/laravel-sitemap)
 
 Dev packages used in this project:
 - Laravel Debugbar
