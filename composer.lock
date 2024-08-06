@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "dd496617bc45e81d2b09d23d9772434c",
+    "content-hash": "a143d6a59a4cf57297f0de0665cae946",
     "packages": [
         {
             "name": "anourvalar/eloquent-serialize",
@@ -71,6 +71,69 @@
                 "source": "https://github.com/AnourValar/eloquent-serialize/tree/1.2.23"
             },
             "time": "2024-07-12T10:52:26+00:00"
+        },
+        {
+            "name": "aymanalhattami/filament-date-scopes-filter",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/aymanalhattami/filament-date-scopes-filter.git",
+                "reference": "96099dfe2dd4085d92162154d9d3e5313a8cb9a6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/aymanalhattami/filament-date-scopes-filter/zipball/96099dfe2dd4085d92162154d9d3e5313a8cb9a6",
+                "reference": "96099dfe2dd4085d92162154d9d3e5313a8cb9a6",
+                "shasum": ""
+            },
+            "require": {
+                "filament/forms": "^3.0",
+                "filament/tables": "^3.0",
+                "laracraft-tech/laravel-date-scopes": "^2.0",
+                "php": "^8.1",
+                "spatie/laravel-package-tools": "^1.12"
+            },
+            "require-dev": {
+                "laravel/pint": "dev-main"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "AymanAlhattami\\FilamentDateScopesFilter\\FilamentDateScopesFilterServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "AymanAlhattami\\FilamentDateScopesFilter\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ayman Alhattami",
+                    "email": "ayman.m.alhattami@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Filament Date Scopes Filter",
+            "homepage": "https://github.com/aymanalhattami/filament-date-scopes-filter",
+            "keywords": [
+                "aymanalhattami",
+                "date filter",
+                "date scopes filter",
+                "filament",
+                "filament-date-scopes-filter"
+            ],
+            "support": {
+                "issues": "https://github.com/aymanalhattami/filament-date-scopes-filter/issues",
+                "source": "https://github.com/aymanalhattami/filament-date-scopes-filter/tree/1.0.1"
+            },
+            "time": "2023-11-25T06:24:51+00:00"
         },
         {
             "name": "aymanalhattami/filament-slim-scrollbar",
@@ -2268,6 +2331,79 @@
                 "source": "https://github.com/kirschbaum-development/eloquent-power-joins/tree/3.5.7"
             },
             "time": "2024-06-26T13:09:29+00:00"
+        },
+        {
+            "name": "laracraft-tech/laravel-date-scopes",
+            "version": "v2.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laracraft-tech/laravel-date-scopes.git",
+                "reference": "804605d6555e531edd2257c3405d71413f4ab41d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laracraft-tech/laravel-date-scopes/zipball/804605d6555e531edd2257c3405d71413f4ab41d",
+                "reference": "804605d6555e531edd2257c3405d71413f4ab41d",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/contracts": "^9.0 || ^10.0 || ^11.0",
+                "illuminate/database": "^9.0 || ^10.0 || ^11.0",
+                "illuminate/support": "^9.0 || ^10.0 || ^11.0",
+                "nesbot/carbon": "^2.66 || ^3.6",
+                "php": "^8.1",
+                "spatie/laravel-package-tools": "^1.13.0"
+            },
+            "require-dev": {
+                "nunomaduro/larastan": "^2.0.1",
+                "orchestra/testbench": "^7.0  || ^8.0  || ^9.0",
+                "pestphp/pest": "^1.22 || ^2.0",
+                "pestphp/pest-plugin-laravel": "^1.22 || ^2.0",
+                "phpstan/extension-installer": "^1.1",
+                "phpstan/phpstan-deprecation-rules": "^1.0",
+                "phpstan/phpstan-phpunit": "^1.0",
+                "spatie/laravel-ray": "^1.26"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "LaracraftTech\\LaravelDateScopes\\LaravelDateScopesServiceProvider"
+                    ],
+                    "aliases": {
+                        "LaravelDateScopes": "LaracraftTech\\LaravelDateScopes\\Facades\\LaravelDateScopes"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "LaracraftTech\\LaravelDateScopes\\": "src",
+                    "LaracraftTech\\LaravelDateScopes\\Database\\Factories\\": "database/factories"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Zacharias Creutznacher",
+                    "email": "zacharias@laracraft.tech",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Some useful date scopes for your Laravel Eloquent models!",
+            "homepage": "https://github.com/laracraft-tech/laravel-date-scopes",
+            "keywords": [
+                "laracraft-tech",
+                "laravel",
+                "laravel-date-scopes"
+            ],
+            "support": {
+                "issues": "https://github.com/laracraft-tech/laravel-date-scopes/issues",
+                "source": "https://github.com/laracraft-tech/laravel-date-scopes/tree/v2.2.0"
+            },
+            "time": "2024-07-02T11:22:35+00:00"
         },
         {
             "name": "laravel/framework",
