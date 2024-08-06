@@ -21,12 +21,27 @@ Main packages used in this project:
 - [aymanalhattami/filament-date-scopes-filter](https://github.com/aymanalhattami/filament-date-scopes-filter)
 - [aymanalhattami/filament-slim-scrollbar](https://github.com/aymanalhattami/filament-slim-scrollbar)
 - [joshembling/image-optimizer](https://github.com/joshembling/image-optimizer)
+- [hasnayeen/themes](https://github.com/hasnayeen/themes)
 
 Dev packages used in this project:
 - Laravel Debugbar
 - Laravel ide-helper
 - Laravel pint
 - Laravel pest
+
+### Notes
+If you want to set theme per user then you'll need to run the package migration. You can publish and run the migrations with:
+
+```bash
+php artisan vendor:publish --tag="themes-migrations"
+php artisan migrate
+```
+_You need to publish config file and change 'mode' => 'user' in order to set theme for user separately._
+
+You can publish the config file with:
+```bash
+php artisan vendor:publish --tag="themes-config"
+```
 
 ## Main Features
 
