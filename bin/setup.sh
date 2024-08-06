@@ -33,5 +33,7 @@ executeCommand 'npm run build' '🏗️ Running npm build...'
 executeCommand 'php artisan migrate' '🗄️ Running migrations...'
 executeCommand 'php artisan db:seed' '🌱 Seeding database...'
 executeCommand 'php artisan optimize:clear' '🧹 Clearing cache...'
+executeCommand 'php artisan ide-helper:generate' '📝 Generating IDE helper docs...'
+executeCommand 'php artisan ide-helper:meta' '📝 Generating PHPStorm meta file...'
 
 echo -e "${COLOR_GREEN}🥳 All tasks completed successfully.${COLOR_RESET}"

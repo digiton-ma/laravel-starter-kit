@@ -58,4 +58,10 @@ executeCommand('php artisan db:seed', '🌱 Seeding database...');
 // clear cache
 executeCommand('php artisan optimize:clear', '🧹 Clearing cache...');
 
+// Generate IDE helper files
+executeCommand('php artisan ide-helper:generate', '📝 Generating IDE helper docs...');
+
+// Generate PHPStorm meta file
+executeCommand('php artisan ide-helper:meta', '📝 Generating PHPStorm meta file...');
+
 echo COLOR_GREEN . "🥳 All tasks completed successfully." . COLOR_RESET . "\n";
