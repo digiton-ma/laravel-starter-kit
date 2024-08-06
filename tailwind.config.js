@@ -4,6 +4,7 @@ export default {
       "./resources/**/*.blade.php",
       "./resources/**/*.js",
       "./resources/**/*.vue",
+      "./vendor/awcodes/filament-quick-create/resources/**/*.blade.php"
   ],
   theme: {
     extend: {},

@@ -22,6 +22,7 @@ Main packages used in this project:
 - [aymanalhattami/filament-slim-scrollbar](https://github.com/aymanalhattami/filament-slim-scrollbar)
 - [joshembling/image-optimizer](https://github.com/joshembling/image-optimizer)
 - [hasnayeen/themes](https://github.com/hasnayeen/themes)
+- [awcodes/filament-quick-create](https://github.com/awcodes/filament-quick-create)
 
 Dev packages used in this project:
 - Laravel Debugbar

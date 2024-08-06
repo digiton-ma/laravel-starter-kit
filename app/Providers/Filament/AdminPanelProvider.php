@@ -2,6 +2,7 @@
 
 namespace App\Providers\Filament;
 
+use Awcodes\FilamentQuickCreate\QuickCreatePlugin;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
@@ -53,6 +54,15 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->authMiddleware([
                 Authenticate::class,
+            ])
+            ->plugins([
+                QuickCreatePlugin::make()
+                    ->excludes([
+                        // \App\Filament\Resources\UserResource::class,
+                    ])
+                    ->includes([
+                        // \App\Filament\Resources\UserResource::class,
+                    ]),
             ]);
     }
 }
