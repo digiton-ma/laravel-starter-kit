@@ -21,7 +21,7 @@ class ManageGeneral extends SettingsPage
                     ->required()
                     ->maxLength(255),
 
-                Forms\Components\TextInput::make('meta_description')
+                Forms\Components\TextInput::make('site_description')
                     ->label('Meta description')
                     ->required()
                     ->maxLength(255),
@@ -31,6 +31,11 @@ class ManageGeneral extends SettingsPage
                     ->required()
                     ->image(),
 
+                Forms\Components\TextInput::make('site_logo_height')
+                    ->label('Hauteur du Logo du site')
+                    ->required()
+                    ->maxLength(6),
+
                 Forms\Components\FileUpload::make('site_favicon')
                     ->label('Favicon du site')
                     ->image(),
@@ -39,17 +44,17 @@ class ManageGeneral extends SettingsPage
                     ->label('Image Open Graph')
                     ->image(),
 
-                Forms\Components\TextInput::make('site_email')
+                Forms\Components\TextInput::make('company_email')
                     ->label('Email du site')
                     ->email()
                     ->maxLength(255),
 
-                Forms\Components\TextInput::make('site_phone')
+                Forms\Components\TextInput::make('company_phone')
                     ->label('Téléphone du site')
                     ->tel()
                     ->maxLength(255),
 
-                Forms\Components\TextInput::make('site_address')
+                Forms\Components\TextInput::make('company_address')
                     ->label('Adresse du site')
                     ->maxLength(255),
             ]);

@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="{{ $meta_description ?? $generalSettings->meta_description ?? '' }}">
+    <meta name="description" content="{{ $site_description ?? $generalSettings->site_description ?? '' }}">
 
     <title>
         {{ (isset($title) ? $title . ' | ' : '') . ($generalSettings->site_name ?? config('app.name', 'Laravel')) }}
@@ -22,14 +22,14 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="{{ url()->current() }}">
     <meta property="og:title" content="{{ $title ?? config('app.name', 'Laravel') }}">
-    <meta property="og:description" content="{{ $meta_description ?? $generalSettings->meta_description ?? '' }}">
+    <meta property="og:description" content="{{ $site_description ?? $generalSettings->site_description ?? '' }}">
     <meta property="og:image" content="{{ $og_image ?? \Illuminate\Support\Facades\Storage::url($generalSettings->og_image) ?? asset('images/og-image.jpg') }}">
 
     {{-- Twitter --}}
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="{{ url()->current() }}">
     <meta property="twitter:title" content="{{ $title ?? config('app.name', 'Laravel') }}">
-    <meta property="twitter:description" content="{{ $meta_description ?? $generalSettings->meta_description ?? '' }}">
+    <meta property="twitter:description" content="{{ $site_description ?? $generalSettings->site_description ?? '' }}">
     <meta property="twitter:image" content="{{ $og_image ?? \Illuminate\Support\Facades\Storage::url($generalSettings->og_image) ?? asset('images/og-image.jpg') }}">
 
     <!-- Custom Google font-->

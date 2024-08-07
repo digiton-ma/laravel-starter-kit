@@ -25,14 +25,18 @@ class AdminPanelProvider extends PanelProvider
 {
     public function panel(Panel $panel): Panel
     {
+        // these params are seperated to make it easier to comment/uncomment them
+        $panel
+            ->brandLogo(Storage::url(app(GeneralSettings::class)->site_logo))
+            ->favicon(Storage::url(app(GeneralSettings::class)->site_favicon))
+            ->brandName(app(GeneralSettings::class)->site_name)
+            ->brandLogoHeight(app(GeneralSettings::class)->site_logo_height);
+
         return $panel
             ->default()
             ->id('admin')
             ->path('admin')
             ->login()
-            ->brandLogo(Storage::url(app(GeneralSettings::class)->site_logo))
-            ->favicon(Storage::url(app(GeneralSettings::class)->site_favicon))
-            ->brandName(app(GeneralSettings::class)->site_name)
             ->colors([
                 'primary' => Color::Amber,
             ])
@@ -68,6 +72,8 @@ class AdminPanelProvider extends PanelProvider
                     ->includes([
                         // \App\Filament\Resources\UserResource::class,
                     ]),
+
+                \TomatoPHP\FilamentPWA\FilamentPWAPlugin::make(),
             ]);
     }
 }
