@@ -1,5 +1,6 @@
 import { defineConfig } from 'vite';
 import laravel, { refreshPaths } from 'laravel-vite-plugin'
+import { compression } from 'vite-plugin-compression2'
 
 export default defineConfig({
     plugins: [
@@ -10,5 +11,7 @@ export default defineConfig({
                 'app/Livewire/**',
             ],
         }),
+
+        compression(),
     ],
 });
