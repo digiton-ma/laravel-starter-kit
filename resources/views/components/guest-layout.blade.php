@@ -38,11 +38,16 @@
 
     @stack('head::before-scripts')
 
-    @livewireStyles
-    @vite('resources/css/app.css')
-    @stack('styles')
+    <style>
+        [x-cloak] {
+            display: none !important;
+        }
+    </style>
 
-    @vite('resources/js/app.js')
+    @filamentStyles
+    @vite('resources/css/app.css')
+
+    @stack('head::styles')
     @stack('head::scripts')
 
     {{-- JSON-LD --}}
@@ -68,7 +73,8 @@
     @stack('body::after-main')
 
     <x-footer />
-    @livewireScriptConfig
+    @filamentScripts
+    @vite('resources/js/app.js')
     @stack("body::scripts")
 
     @stack('body::end')
