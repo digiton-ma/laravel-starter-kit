@@ -64,6 +64,11 @@ chmod +x ./bin/setup.sh # if you get permission denied error
 ./bin/setup.sh 
 #or
 php bin/setup.php
+
+# for windows
+./bin/setup.bat
+#or
+./bin/setup.ps1 # this one needs windows script execution permission, open powershell as admin and run this command: Set-ExecutionPolicy RemoteSigned
 ```
 
 ## Main Features
