@@ -8,11 +8,11 @@
 
 @echo off
 
-echo --- Running composer install...
-call composer install
-
 echo --- Copying .env.example to .env...
 copy .env.example .env
+
+echo --- Running composer install...
+call composer install
 
 echo --- Generating application key...
 call php artisan key:generate
