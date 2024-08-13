@@ -72,8 +72,6 @@ class AdminPanelProvider extends PanelProvider
                     ->includes([
                         // \App\Filament\Resources\UserResource::class,
                     ]),
-
-                \TomatoPHP\FilamentPWA\FilamentPWAPlugin::make(),
             ]);
     }
 }
