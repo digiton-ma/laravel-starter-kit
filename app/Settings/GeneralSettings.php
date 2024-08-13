@@ -2,9 +2,7 @@
 
 namespace App\Settings;
 
-use Spatie\LaravelSettings\Settings;
-
-class GeneralSettings extends Settings
+class GeneralSettings
 {
     public string $site_name = '';
     public string $site_description = '';
