@@ -27,10 +27,10 @@ class AdminPanelProvider extends PanelProvider
     {
         // these params are seperated to make it easier to comment/uncomment them
         $panel
-            ->brandLogo(Storage::url(app(GeneralSettings::class)->site_logo))
-            ->favicon(Storage::url(app(GeneralSettings::class)->site_favicon))
-            ->brandName(app(GeneralSettings::class)->site_name)
-            ->brandLogoHeight(app(GeneralSettings::class)->site_logo_height);
+            ->brandLogo(Storage::url(settings()->get('general.site_logo')))
+            ->favicon(Storage::url(settings()->get('general.site_favicon')))
+            ->brandName(settings()->get('general.site_name'))
+            ->brandLogoHeight(settings()->get('general.site_logo_height'));
 
         return $panel
             ->default()
