@@ -14,6 +14,7 @@
         "php": "^8.2",
         "arcanedev/laravel-settings": "^11.0",
         "awcodes/filament-quick-create": "^3.4",
+        "awcodes/filament-tiptap-editor": "^3.0",
         "aymanalhattami/filament-date-scopes-filter": "^1.0",
         "aymanalhattami/filament-slim-scrollbar": "^2.0",
         "filament/filament": "^3.2",
