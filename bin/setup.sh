@@ -37,7 +37,7 @@ fi
 executeCommand 'cp .env.example .env' '📰 Copying .env.example to .env...'
 executeCommand 'composer install' '⚗️ Running composer install...'
 executeCommand 'php artisan key:generate' '🔑 Generating application key...'
-executeCommand 'php artisan storage:link' '🔗 Linking storage...'
+executeCommand 'php artisan storage:link --force' '🔗 Linking storage...'
 executeCommand 'npm install' '⚗️ Installing npm packages...'
 executeCommand 'npm run build' '🏗️ Running npm build...'
 executeCommand 'php artisan migrate' '🗄️ Running migrations...'

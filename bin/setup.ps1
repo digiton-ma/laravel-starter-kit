@@ -58,7 +58,7 @@ if (-not (Test-Path 'composer.json')) {
 Execute-Command 'Copy-Item .env.example .env' '📰 Copying .env.example to .env...'
 Execute-Command 'composer install' '⚗️ Running composer install...'
 Execute-Command 'php artisan key:generate' '🔑 Generating application key...'
-Execute-Command 'php artisan storage:link' '🔗 Linking storage...'
+Execute-Command 'php artisan storage:link --force' '🔗 Linking storage...'
 Execute-Command 'npm install' '⚗️ Installing npm packages...'
 Execute-Command 'npm run build' '🏗️ Running npm build...'
 Execute-Command 'php artisan migrate' '🗄️ Running migrations...'

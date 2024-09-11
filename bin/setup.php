@@ -72,7 +72,7 @@ executeCommand('composer install', '⚗️ Running composer install...');
 executeCommand('php artisan key:generate', '🔑 Generating application key...');
 
 // Link storage
-executeCommand('php artisan storage:link', '🔗 Linking storage...');
+executeCommand('php artisan storage:link --force', '🔗 Linking storage...');
 
 // Install npm packages
 executeCommand('npm install', '⚗️ Installing npm packages...');
