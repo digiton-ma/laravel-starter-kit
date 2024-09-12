@@ -8,7 +8,7 @@ parameters:
         - app/
         - config/
         - database/
-         - routes/
+        - routes/
 
     tmpDir: build/phpstan
     checkOctaneCompatibility: true
