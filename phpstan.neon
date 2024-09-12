@@ -3,13 +3,12 @@ includes:
     - vendor/larastan/larastan/extension.neon
 
 parameters:
-    level: 5
+    checkMissingIterableValueType: true
+
+    level: 6
+
     paths:
         - app/
         - config/
-        - database/
+        - database/factories
         - routes/
-
-    tmpDir: build/phpstan
-    checkOctaneCompatibility: true
-    checkModelProperties: true
