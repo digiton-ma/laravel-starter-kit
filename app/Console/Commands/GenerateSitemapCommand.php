@@ -25,10 +25,8 @@ final class GenerateSitemapCommand extends Command
 
     /**
      * Execute the console command.
-     *
-     * @return mixed
      */
-    public function handle()
+    public function handle(): void
     {
         SitemapGenerator::create(config('app.url'))->writeToFile(public_path('sitemap.xml'));
     }

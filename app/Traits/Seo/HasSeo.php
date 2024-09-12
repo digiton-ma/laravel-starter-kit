@@ -15,17 +15,17 @@ trait HasSeo
         'canonical_link',
     ];
 
-    public function initializeHasSeo()
+    public function initializeHasSeo(): void
     {
         $this->fillable = array_merge($this->fillable, $this->seo_fileds);
     }
 
-    public function seoFactoryValues()
+    public function seoFactoryValues(): array
     {
         return [
             'seo_title' => $this->faker?->sentence,
             'seo_description' => Str::limit($this->faker?->paragraph, 160),
-            'seo_keywords' => implode(',', explode(' ', $this->faker?->words(5, true))),
+            'seo_keywords' => implode(',', explode(' ', (string) $this->faker?->words(5, true))),
             'canonical_link' => $this->faker?->url,
         ];
     }

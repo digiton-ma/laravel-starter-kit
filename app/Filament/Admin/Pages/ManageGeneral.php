@@ -8,17 +8,23 @@ use Filament\Forms;
 use Filament\Notifications\Notification;
 use Filament\Pages\Page;
 
+/**
+ * @property Forms\ComponentContainer $form
+ */
 final class ManageGeneral extends Page implements Forms\Contracts\HasForms
 {
     use Forms\Concerns\InteractsWithForms;
 
-    public ?array $data = [];
+    /**
+     * @var array <string, mixed>
+     */
+    public array $data = [];
 
     protected static ?string $navigationIcon = 'heroicon-o-cog-6-tooth';
 
     protected static string $view = 'filament.admin.pages.manage-general';
 
-    public function mount()
+    public function mount(): void
     {
         $this->form->fill([
             'general' => [
@@ -97,7 +103,7 @@ final class ManageGeneral extends Page implements Forms\Contracts\HasForms
             ->statePath('data');
     }
 
-    public function save()
+    public function save(): void
     {
         $data = $this->form->getState();
 

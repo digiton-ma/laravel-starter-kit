@@ -12,7 +12,7 @@ return Application::configure(basePath: dirname(__DIR__))
         commands: __DIR__.'/../routes/console.php',
         health: '/up',
     )
-    ->withMiddleware(function (Middleware $middleware) {
+    ->withMiddleware(function (Middleware $middleware): void {
         $middleware->web(append: [
             Spatie\ResponseCache\Middlewares\CacheResponse::class,
         ]);
@@ -21,6 +21,6 @@ return Application::configure(basePath: dirname(__DIR__))
             'doNotCacheResponse' => Spatie\ResponseCache\Middlewares\DoNotCacheResponse::class,
         ]);
     })
-    ->withExceptions(function (Exceptions $exceptions) {
+    ->withExceptions(function (Exceptions $exceptions): void {
         //
     })->create();

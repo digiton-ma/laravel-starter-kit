@@ -11,7 +11,7 @@ trait HasSeoFields
     public function addSeoFields(
         Blueprint $table,
         array $items = ['seo_title', 'seo_description', 'seo_keywords', 'canonical_link']
-    ) {
+    ): void {
         if (in_array('seo_title', $items, true)) {
             $table->string('seo_title')->nullable();
         }
