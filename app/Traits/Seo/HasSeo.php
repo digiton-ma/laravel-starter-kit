@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Traits\Seo;
 
 use Illuminate\Support\Str;
@@ -23,7 +25,7 @@ trait HasSeo
         return [
             'seo_title' => $this->faker?->sentence,
             'seo_description' => Str::limit($this->faker?->paragraph, 160),
-            'seo_keywords' => implode(',' , explode(' ', $this->faker?->words(5, true))),
+            'seo_keywords' => implode(',', explode(' ', $this->faker?->words(5, true))),
             'canonical_link' => $this->faker?->url,
         ];
     }

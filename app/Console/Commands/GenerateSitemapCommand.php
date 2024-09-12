@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
 use Spatie\Sitemap\SitemapGenerator;
 
-class GenerateSitemapCommand extends Command
+final class GenerateSitemapCommand extends Command
 {
     /**
      * The console command name.

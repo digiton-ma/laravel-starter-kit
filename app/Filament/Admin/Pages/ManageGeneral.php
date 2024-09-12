@@ -1,18 +1,19 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Filament\Admin\Pages;
 
-use App\Settings\GeneralSettings;
 use Filament\Forms;
 use Filament\Notifications\Notification;
 use Filament\Pages\Page;
-use Filament\Pages\SettingsPage;
 
-class ManageGeneral extends Page implements Forms\Contracts\HasForms
+final class ManageGeneral extends Page implements Forms\Contracts\HasForms
 {
     use Forms\Concerns\InteractsWithForms;
 
     public ?array $data = [];
+
     protected static ?string $navigationIcon = 'heroicon-o-cog-6-tooth';
 
     protected static string $view = 'filament.admin.pages.manage-general';
@@ -31,7 +32,7 @@ class ManageGeneral extends Page implements Forms\Contracts\HasForms
                 'company_email' => settings()->get('general.company_email'),
                 'company_phone' => settings()->get('general.company_phone'),
                 'company_address' => settings()->get('general.company_address'),
-            ]
+            ],
         ]);
     }
 
@@ -41,7 +42,7 @@ class ManageGeneral extends Page implements Forms\Contracts\HasForms
             ->schema([
                 Forms\Components\Section::make('general')
                     ->heading('General Settings')
-                    ->description("Here you can set the general settings of your site.")
+                    ->description('Here you can set the general settings of your site.')
                     ->schema([
                         Forms\Components\TextInput::make('general.site_name')
                             ->label('Nom du site')
