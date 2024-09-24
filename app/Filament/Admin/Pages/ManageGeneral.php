@@ -4,10 +4,15 @@ declare(strict_types=1);
 
 namespace App\Filament\Admin\Pages;
 
+use Filament\Actions\Action;
+use Filament\Actions\ActionGroup;
 use Filament\Forms;
 use Filament\Notifications\Notification;
+use Filament\Pages\Concerns\HasUnsavedDataChangesAlert;
+use Filament\Pages\Concerns\InteractsWithFormActions;
 use Filament\Pages\Page;
 use Illuminate\Contracts\Support\Htmlable;
+use Illuminate\Support\Facades\Storage;
 use Livewire\Features\SupportFileUploads\TemporaryUploadedFile;
 
 /**
@@ -15,7 +20,9 @@ use Livewire\Features\SupportFileUploads\TemporaryUploadedFile;
  */
 final class ManageGeneral extends Page implements Forms\Contracts\HasForms
 {
-    use Forms\Concerns\InteractsWithForms;
+    use Forms\Concerns\InteractsWithForms,
+        InteractsWithFormActions,
+        HasUnsavedDataChangesAlert;
 
     /**
      * @var array <string, mixed>
@@ -134,6 +141,14 @@ final class ManageGeneral extends Page implements Forms\Contracts\HasForms
     {
         $data = $this->form->getState();
 
+        if ($data['general']['site_favicon'] === null) {
+            Storage::delete('public/favicon.png');
+        }
+
+        if ($data['general']['og_image'] === null) {
+            Storage::delete('public/og_image.png');
+        }
+
         settings()->set([
             'general.site_name' => $data['general']['site_name'] ?? '',
             'general.site_description' => $data['general']['site_description'] ?? '',
@@ -155,5 +170,22 @@ final class ManageGeneral extends Page implements Forms\Contracts\HasForms
             ->send();
 
         $this->js('window.location.reload()');
+    }
+
+    /**
+     * @return array<Action | ActionGroup>
+     */
+    public function getFormActions(): array
+    {
+        return [
+            $this->getSaveFormAction(),
+        ];
+    }
+
+    public function getSaveFormAction(): Action
+    {
+        return Action::make('save')
+            ->submit('save')
+            ->keyBindings(['mod+s']);
     }
 }
