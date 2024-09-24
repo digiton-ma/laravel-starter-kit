@@ -26,21 +26,27 @@ final class AdminPanelProvider extends PanelProvider
 {
     public function panel(Panel $panel): Panel
     {
-        // these params are seperated to make it easier to comment/uncomment them
-        $panel
-            ->brandLogo(Storage::url(settings()->get('general.site_logo')))
-            ->favicon(Storage::url(settings()->get('general.site_favicon')))
-            ->brandName(settings()->get('general.site_name'))
-            ->brandLogoHeight(settings()->get('general.site_logo_height'));
+
+        try {
+            $brandName = settings()->get('general.site_name');
+            $brandLogoHeight = settings()->get('general.site_logo_height');
+        } catch (\Throwable $e) {
+            $brandName = null;
+            $brandLogoHeight = null;
+        }
 
         return $panel
             ->default()
             ->id('admin')
             ->path('admin')
-            ->login()
             ->colors([
                 'primary' => Color::Amber,
             ])
+            ->favicon(file_exists($favIcon = storage_path('app/public/favicon.png')) ? asset('storage/favicon.png') . '?v=' . md5_file($favIcon) : null)
+            ->brandLogo(file_exists($logo = storage_path('app/public/logo.png')) ? asset('storage/logo.png') . '?v=' . md5_file($logo) : null)
+            ->brandName($brandName ?? config('app.name'))
+            ->brandLogoHeight($brandLogoHeight ?? '75px')
+            ->login()
             ->discoverResources(in: app_path('Filament/Admin/Resources'), for: 'App\\Filament\\Admin\\Resources')
             ->discoverPages(in: app_path('Filament/Admin/Pages'), for: 'App\\Filament\\Admin\\Pages')
             ->pages([
