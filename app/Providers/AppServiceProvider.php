@@ -18,7 +18,7 @@ final class AppServiceProvider extends ServiceProvider
         }
 
         // this is only needed for the installation process of the starter kit
-        if (!config('app.installed')) {
+        if (! config('app.installed')) {
             config(['settings.default' => 'array']);
         }
     }

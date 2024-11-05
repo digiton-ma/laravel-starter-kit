@@ -21,8 +21,8 @@ use Livewire\Features\SupportFileUploads\TemporaryUploadedFile;
 final class ManageGeneral extends Page implements Forms\Contracts\HasForms
 {
     use Forms\Concerns\InteractsWithForms,
-        InteractsWithFormActions,
-        HasUnsavedDataChangesAlert;
+        HasUnsavedDataChangesAlert,
+        InteractsWithFormActions;
 
     /**
      * @var array <string, mixed>
@@ -32,7 +32,6 @@ final class ManageGeneral extends Page implements Forms\Contracts\HasForms
     protected static ?string $navigationIcon = 'heroicon-o-cog-6-tooth';
 
     protected static string $view = 'filament.admin.pages.manage-general';
-
 
     public function getTitle(): string|Htmlable
     {
@@ -131,7 +130,7 @@ final class ManageGeneral extends Page implements Forms\Contracts\HasForms
                                     ->getUploadedFileNameForStorageUsing(fn (TemporaryUploadedFile $file): string => 'og_image.png'),
                             ])
                             ->columns(2),
-                    ])
+                    ]),
             ])
 
             ->statePath('data');

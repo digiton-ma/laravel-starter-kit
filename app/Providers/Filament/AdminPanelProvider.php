@@ -19,8 +19,8 @@ use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
 use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\AuthenticateSession;
 use Illuminate\Session\Middleware\StartSession;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
+use Throwable;
 
 final class AdminPanelProvider extends PanelProvider
 {
@@ -30,7 +30,7 @@ final class AdminPanelProvider extends PanelProvider
         try {
             $brandName = settings()->get('general.site_name');
             $brandLogoHeight = settings()->get('general.site_logo_height');
-        } catch (\Throwable $e) {
+        } catch (Throwable $e) {
             $brandName = null;
             $brandLogoHeight = null;
         }
@@ -42,8 +42,8 @@ final class AdminPanelProvider extends PanelProvider
             ->colors([
                 'primary' => Color::Amber,
             ])
-            ->favicon(file_exists($favIcon = storage_path('app/public/favicon.png')) ? asset('storage/favicon.png') . '?v=' . md5_file($favIcon) : null)
-            ->brandLogo(file_exists($logo = storage_path('app/public/logo.png')) ? asset('storage/logo.png') . '?v=' . md5_file($logo) : null)
+            ->favicon(file_exists($favIcon = storage_path('app/public/favicon.png')) ? asset('storage/favicon.png').'?v='.md5_file($favIcon) : null)
+            ->brandLogo(file_exists($logo = storage_path('app/public/logo.png')) ? asset('storage/logo.png').'?v='.md5_file($logo) : null)
             ->brandName($brandName ?? config('app.name'))
             ->brandLogoHeight($brandLogoHeight ?? '75px')
             ->login()
