@@ -18,6 +18,17 @@ return [
     'name' => env('APP_NAME', 'Laravel'),
 
     /*
+     | -------------------------------------------------------------------------
+     | The application is installed.
+     | -------------------------------------------------------------------------
+     | This is only needed for when you want to share the projet with others and
+     | you want to make sure that the installation process will go smoothly.
+     |
+     */
+
+    'installed' => env('APP_INSTALLED', false),
+
+    /*
     |--------------------------------------------------------------------------
     | Application Environment
     |--------------------------------------------------------------------------
