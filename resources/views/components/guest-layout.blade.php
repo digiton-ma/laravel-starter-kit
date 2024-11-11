@@ -77,6 +77,9 @@
     @stack('body::after-main')
 
     <x-footer />
+
+    <x-back-to-top-btn />
+
     @filamentScripts
     @vite('resources/js/app.js')
     @stack("body::scripts")
