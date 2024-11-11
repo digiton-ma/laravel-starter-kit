@@ -17,24 +17,26 @@ This is a laravel starter kit with all the necessary packages and configurations
 
 Main packages used in this project:
 - [FilamentPHP](https://filamentphp.com)
-- Spatie Laravel Settings
-- Spatie Permission
-- Spatie Media Library
-- Spatie Query Builder
-- [aymanalhattami/filament-date-scopes-filter](https://github.com/aymanalhattami/filament-date-scopes-filter)
-- [aymanalhattami/filament-slim-scrollbar](https://github.com/aymanalhattami/filament-slim-scrollbar)
-- [joshembling/image-optimizer](https://github.com/joshembling/image-optimizer)
-- [hasnayeen/themes](https://github.com/hasnayeen/themes)
-- [awcodes/filament-quick-create](https://github.com/awcodes/filament-quick-create)
-- [filament/spatie-laravel-media-library-plugin:"^3.2"](https://github.com/filamentphp/spatie-laravel-media-library-plugin)
-- [spatie/laravel-sitemap](https://github.com/spatie/laravel-sitemap)
-- [spatie/laravel-responsecache](https://github.com/spatie/laravel-responsecache)
+- [Arcanedev Laravel Settings](https://github.com/ARCANEDEV/LaravelSettings)
+- [Spatie Permission](https://spatie.be/docs/laravel-permission/v6/introduction)
+- [Spatie Media Library](https://spatie.be/docs/laravel-medialibrary/v11/introduction)
+- [Spatie Query Builder](https://spatie.be/docs/laravel-query-builder/v5/introduction)
+- [Filament date scopes filter](https://github.com/aymanalhattami/filament-date-scopes-filter)
+- [Filament slim scrollbar](https://github.com/aymanalhattami/filament-slim-scrollbar)
+- [Filament Image optimizer](https://github.com/joshembling/image-optimizer)
+- [Filament themes](https://github.com/hasnayeen/themes)
+- [Filament quick create](https://github.com/awcodes/filament-quick-create)
+- [Filament spatie laravel media library plugin](https://github.com/filamentphp/spatie-laravel-media-library-plugin)
+- [Spatie laravel sitemap](https://github.com/spatie/laravel-sitemap)
+- [Spatie laravel responsecache](https://github.com/spatie/laravel-responsecache)
 
 Dev dependencies used in this project:
-- Laravel Debugbar
-- Laravel ide-helper
-- Laravel pint
-- Laravel pest
+- [Laravel Debugbar](https://github.com/barryvdh/laravel-debugbar)
+- [Laravel ide-helper](https://github.com/barryvdh/laravel-ide-helper)
+- [Laravel pint](https://laravel.com/docs/11.x/pint)
+- [Pestphp](https://pestphp.com/)
+- [Larastan](https://github.com/larastan/larastan)
+- [Rector](https://github.com/rectorphp/rector)
 
 ### Notes
 If you want to set theme per user then you'll need to run the package migration. You can publish and run the migrations with:
@@ -70,6 +72,13 @@ php bin/setup.php
 #or
 ./bin/setup.ps1 # this one needs windows script execution permission, open powershell as admin and run this command: Set-ExecutionPolicy RemoteSigned
 ```
+
+Or if you used [the installer](https://github.com/digiton-ma/installer), you can create a new project by running:
+
+```bash
+digitoncli new my-project  --git --migrate --seed --github --org=digiton-ma
+```
+View the [documentation](https://github.com/digiton-ma/installer) for the installer for more information on the usage.
 
 ## Main Features
 
