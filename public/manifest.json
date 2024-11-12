@@ -1,0 +1,58 @@
+{
+    "name": "Digiton.ma",
+    "short_name": "Digiton",
+    "description": "Weather forecast information",
+    "id": "/?ref=pwa",
+    "start_url": "/?ref=pwa",
+    "background_color": "#3367D6",
+    "display": "standalone",
+    "scope": "/",
+    "theme_color": "#3367D6",
+    "icons": [
+        {
+            "src": "/assets/images/logos/logo-vector.svg",
+            "type": "image/svg+xml",
+            "sizes": "512x512"
+        },
+        {
+            "src": "/assets/images/logos/logo-192.png",
+            "type": "image/png",
+            "sizes": "192x192"
+        },
+        {
+            "src": "/assets/images/logos/logo-512.png",
+            "type": "image/png",
+            "sizes": "512x512"
+        }
+    ],
+    "shortcuts": [
+        {
+            "name": "About Digiton",
+            "short_name": "About",
+            "description": "Learn more about Digiton",
+            "url": "/about?source=pwa",
+            "icons": [{ "src": "/assets/icons/info.png", "sizes": "192x192" }]
+        },
+        {
+            "name": "Contact Us",
+            "short_name": "Contact",
+            "description": "Send us a message",
+            "url": "/contact?source=pwa",
+            "icons": [{ "src": "/assets/icons/phone.png", "sizes": "192x192" }]
+        }
+    ],
+    "screenshots": [
+        {
+            "src": "/assets/images/screenshots/screenshot1.png",
+            "type": "image/png",
+            "sizes": "540x720",
+            "form_factor": "narrow"
+        },
+        {
+            "src": "/assets/images/screenshots/screenshot2.jpg",
+            "type": "image/jpg",
+            "sizes": "720x540",
+            "form_factor": "wide"
+        }
+    ]
+}

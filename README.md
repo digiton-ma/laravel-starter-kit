@@ -85,6 +85,12 @@ View the [documentation](https://github.com/digiton-ma/installer) for the instal
 ### FilamentPHP
 FilamentPHP is a Laravel package that provides a simple and elegant way to build admin panels for your Laravel applications.
 
+### PWA Ready
+This starter kit is PWA ready, you can start building your PWA right away. 
+Go ahead and customize the manifest to make it your own. 
+If you need a service worker feel free to create one for yourself.
+TODO: A service worker example.
+
 ### Settings Management
 using Spatie Laravel Settings to store settings in the database and retrieve them globally.
 

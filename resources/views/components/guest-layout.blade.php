@@ -6,14 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="{{ $site_description ?? settings()->get('general.site_description') ?? '' }}">
 
     <title>
         {{ (isset($title) ? $title . ' | ' : '') . (settings()->get('general.site_name') ?? config('app.name', 'Laravel')) }}
     </title>
 
+    <meta name="description" content="{{ $site_description ?? settings()->get('general.site_description') ?? '' }}">
     <link rel="canonical" href="{{ url()->current() }}" />
-    <link rel="icon" href="{{ \Illuminate\Support\Facades\Storage::url(settings()->get('general.site_favicon')) ?? asset('assets/logos/favicon.ico') }}" type="image/x-icon"/>
+
+    <!-- favicon -->
+    <link rel="icon" type="image/x-icon" href="{{ \Illuminate\Support\Facades\Storage::url(settings()->get('general.site_favicon')) ?? asset('assets/logos/favicon.ico') }}">
+    <link rel="icon" type="image/svg+xml" href="{{ \Illuminate\Support\Facades\Storage::url(settings()->get('general.site_favicon_svg')) ?? asset('/assets/logos/favicon.svg') }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ \Illuminate\Support\Facades\Storage::url(settings()->get('general.apple_touch_icon')) ?? asset('/assets/logos/apple-touch-icon.png') }}">
+
+    <!-- PWA manifest -->
+    <link rel="manifest" href="{{ asset('/manifest.json') }}">
 
     {{-- Open Graph / Facebook --}}
     <meta property="og:type" content="website">
