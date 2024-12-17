@@ -7,7 +7,7 @@ COLOR_RESET="\033[0m"
 
 # Function to print usage instructions
 printUsage() {
-    echo "Usage: $0 [--without COMMAND1,COMMAND2] [--skip COMMAND1,COMMAND2]"
+    echo "Usage: $0 [--without COMMAND1,COMMAND2] [--skip COMMAND1,COMMAND2] [--only COMMAND1,COMMAND2]"
     echo
     echo "Available commands:"
     echo "  cp_env          - Copy .env.example to .env"
@@ -28,6 +28,11 @@ executeCommand() {
     local command="$2"
     local msg="$3"
 
+    # Check if ONLY_COMMANDS is set and command is not in the list
+    if [[ -n "${ONLY_COMMANDS[*]}" && ! " ${ONLY_COMMANDS[@]} " =~ " ${command_id} " ]]; then
+        return 0
+    fi
+
     # Check if command should be skipped
     if [[ " ${SKIP_COMMANDS[@]} " =~ " ${command_id} " ]]; then
         echo -e "${COLOR_GREEN}⏩ Skipping: ${msg}${COLOR_RESET}"
@@ -43,21 +48,30 @@ executeCommand() {
 
 # Function to update the APP_INSTALLED key in .env
 setAppInstalledTrue() {
-    if grep -q '^APP_INSTALLED=' .env; then
-        sed -i 's/^APP_INSTALLED=.*/APP_INSTALLED=true/' .env
-    else
-        echo 'APP_INSTALLED=true' >> .env
+    # Only set if no ONLY_COMMANDS are specified or APP_INSTALLED is in ONLY_COMMANDS
+    if [[ -z "${ONLY_COMMANDS[*]}" || " ${ONLY_COMMANDS[@]} " =~ " app_installed " ]]; then
+        if grep -q '^APP_INSTALLED=' .env; then
+            sed -i 's/^APP_INSTALLED=.*/APP_INSTALLED=true/' .env
+        else
+            echo 'APP_INSTALLED=true' >> .env
+        fi
+        echo -e "${COLOR_GREEN}✅  APP_INSTALLED set to true in .env.${COLOR_RESET}"
     fi
-    echo -e "${COLOR_GREEN}✅  APP_INSTALLED set to true in .env.${COLOR_RESET}"
 }
 
 # Parse command line arguments
 SKIP_COMMANDS=()
+ONLY_COMMANDS=()
 while [[ $# -gt 0 ]]; do
     case "$1" in
         --without|--skip)
             # Split comma-separated commands into array
             IFS=',' read -r -a SKIP_COMMANDS <<< "$2"
+            shift 2
+            ;;
+        --only)
+            # Split comma-separated commands into array
+            IFS=',' read -r -a ONLY_COMMANDS <<< "$2"
             shift 2
             ;;
         -h|--help)
@@ -90,7 +104,11 @@ executeCommand 'seed' 'php artisan db:seed' '🌱 Seeding database...'
 executeCommand 'optimize' 'php artisan optimize:clear' '🧹 Clearing cache...'
 executeCommand 'ide_helper' 'php artisan ide-helper:generate && php artisan ide-helper:meta' '📝 Generating IDE helper docs...'
 
-# Set APP_INSTALLED to true (only if not skipped)
+# Set APP_INSTALLED to true
 setAppInstalledTrue
 
-echo -e "${COLOR_GREEN}🥳 All tasks completed successfully.${COLOR_RESET}"
+# If ONLY_COMMANDS is set, we've already executed only those commands
+# If no ONLY_COMMANDS, then we've already done everything
+if [[ -z "${ONLY_COMMANDS[*]}" ]]; then
+    echo -e "${COLOR_GREEN}🥳 All tasks completed successfully.${COLOR_RESET}"
+fi
