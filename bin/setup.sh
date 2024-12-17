@@ -5,10 +5,34 @@ COLOR_GREEN="\033[32m"
 COLOR_RED="\033[31m"
 COLOR_RESET="\033[0m"
 
+# Function to print usage instructions
+printUsage() {
+    echo "Usage: $0 [--without COMMAND1,COMMAND2] [--skip COMMAND1,COMMAND2]"
+    echo
+    echo "Available commands:"
+    echo "  cp_env          - Copy .env.example to .env"
+    echo "  composer        - Run composer install"
+    echo "  key_generate    - Generate application key"
+    echo "  storage_link    - Link storage"
+    echo "  npm_install     - Install npm packages"
+    echo "  npm_build       - Run npm build"
+    echo "  migrate         - Run database migrations"
+    echo "  seed            - Seed database"
+    echo "  optimize        - Clear cache"
+    echo "  ide_helper      - Generate IDE helper docs"
+}
+
 # Function to execute a command and check for errors
 executeCommand() {
-    local command="$1"
-    local msg="$2"
+    local command_id="$1"
+    local command="$2"
+    local msg="$3"
+
+    # Check if command should be skipped
+    if [[ " ${SKIP_COMMANDS[@]} " =~ " ${command_id} " ]]; then
+        echo -e "${COLOR_GREEN}⏩ Skipping: ${msg}${COLOR_RESET}"
+        return 0
+    fi
 
     echo -e "${COLOR_GREEN}${msg:-"Executing: $command"}${COLOR_RESET}"
     if ! eval "$command"; then
@@ -27,26 +51,46 @@ setAppInstalledTrue() {
     echo -e "${COLOR_GREEN}✅  APP_INSTALLED set to true in .env.${COLOR_RESET}"
 }
 
+# Parse command line arguments
+SKIP_COMMANDS=()
+while [[ $# -gt 0 ]]; do
+    case "$1" in
+        --without|--skip)
+            # Split comma-separated commands into array
+            IFS=',' read -r -a SKIP_COMMANDS <<< "$2"
+            shift 2
+            ;;
+        -h|--help)
+            printUsage
+            exit 0
+            ;;
+        *)
+            echo -e "${COLOR_RED}Unknown argument: $1${COLOR_RESET}"
+            printUsage
+            exit 1
+            ;;
+    esac
+done
+
 # Check if composer.json exists
 if [ ! -f 'composer.json' ]; then
     echo -e "${COLOR_RED}🚨🚨🚨 Please make sure to run this script from the root directory of this repo.${COLOR_RESET}"
     exit 1
 fi
 
-# Run tasks
-executeCommand 'cp .env.example .env' '📰 Copying .env.example to .env...'
-executeCommand 'composer install' '⚗️ Running composer install...'
-executeCommand 'php artisan key:generate' '🔑 Generating application key...'
-executeCommand 'php artisan storage:link --force' '🔗 Linking storage...'
-executeCommand 'npm install' '⚗️ Installing npm packages...'
-executeCommand 'npm run build' '🏗️ Running npm build...'
-executeCommand 'php artisan migrate' '🗄️ Running migrations...'
-executeCommand 'php artisan db:seed' '🌱 Seeding database...'
-executeCommand 'php artisan optimize:clear' '🧹 Clearing cache...'
-executeCommand 'php artisan ide-helper:generate' '📝 Generating IDE helper docs...'
-executeCommand 'php artisan ide-helper:meta' '📝 Generating PHPStorm meta file...'
+# Run tasks with command identifiers
+executeCommand 'cp_env' 'cp .env.example .env' '📰 Copying .env.example to .env...'
+executeCommand 'composer' 'composer install' '⚗️ Running composer install...'
+executeCommand 'key_generate' 'php artisan key:generate' '🔑 Generating application key...'
+executeCommand 'storage_link' 'php artisan storage:link' '🔗 Linking storage...'
+executeCommand 'npm_install' 'npm install' '⚗️ Installing npm packages...'
+executeCommand 'npm_build' 'npm run build' '🏗️ Running npm build...'
+executeCommand 'migrate' 'php artisan migrate' '🗄️ Running migrations...'
+executeCommand 'seed' 'php artisan db:seed' '🌱 Seeding database...'
+executeCommand 'optimize' 'php artisan optimize:clear' '🧹 Clearing cache...'
+executeCommand 'ide_helper' 'php artisan ide-helper:generate && php artisan ide-helper:meta' '📝 Generating IDE helper docs...'
 
-# Set APP_INSTALLED to true
+# Set APP_INSTALLED to true (only if not skipped)
 setAppInstalledTrue
 
 echo -e "${COLOR_GREEN}🥳 All tasks completed successfully.${COLOR_RESET}"
