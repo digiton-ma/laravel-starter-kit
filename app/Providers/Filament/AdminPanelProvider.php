@@ -30,7 +30,7 @@ final class AdminPanelProvider extends PanelProvider
         try {
             $brandName = settings()->get('general.site_name');
             $brandLogoHeight = settings()->get('general.site_logo_height');
-        } catch (Throwable $e) {
+        } catch (Throwable) {
             $brandName = null;
             $brandLogoHeight = null;
         }
