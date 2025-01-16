@@ -33,9 +33,14 @@ final class ManageGeneral extends Page implements Forms\Contracts\HasForms
 
     protected static string $view = 'filament.admin.pages.manage-general';
 
+    public static function getNavigationLabel(): string
+    {
+        return __('General Settings');
+    }
+
     public function getTitle(): string|Htmlable
     {
-        return 'General Settings';
+        return __('General Settings');
     }
 
     public function getSubheading(): string|Htmlable|null
