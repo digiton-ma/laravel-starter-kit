@@ -47,7 +47,7 @@ function executeCommand(string $command, ?string $msg = null)
 function setAppInstalledTrue(bool $status = true, array $onlyCommands = []): void
 {
     // Only set if no ONLY_COMMANDS are specified or APP_INSTALLED is in ONLY_COMMANDS
-    if (!empty($onlyCommands) && !in_array('app_installed', $onlyCommands, true)) {
+    if (! empty($onlyCommands) && ! in_array('app_installed', $onlyCommands, true)) {
         return;
     }
 
@@ -137,7 +137,7 @@ foreach ($tasks as $task) {
     // Check if task should be executed
     if (
         (empty($onlyCommands) || in_array($task[0], $onlyCommands)) &&
-        !in_array($task[0], $skipCommands, true)
+        ! in_array($task[0], $skipCommands, true)
     ) {
         executeCommand($task[1], $task[2]);
     }

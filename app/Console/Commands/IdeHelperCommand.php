@@ -1,10 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
 
-class IdeHelperCommand extends Command
+final class IdeHelperCommand extends Command
 {
     /**
      * The name and signature of the console command.
@@ -27,6 +29,7 @@ class IdeHelperCommand extends Command
     {
         if (app()->environment('production')) {
             $this->info('Skipping IDE Helper generation in production.');
+
             return 0;
         }
 
