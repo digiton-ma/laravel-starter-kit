@@ -62,8 +62,7 @@ then run one of the setup scripts within the project directory:
 
 ```bash
 cd my-project # if you are not already in the project directory
-chmod +x ./bin/setup.sh # if you get permission denied error
-./bin/setup.sh 
+bash ./bin/setup.sh # if you get permission denied error
 #or
 php bin/setup.php
 
