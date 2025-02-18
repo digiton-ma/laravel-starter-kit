@@ -28,7 +28,12 @@ Main packages used in this project:
 - [Filament quick create](https://github.com/awcodes/filament-quick-create)
 - [Filament spatie laravel media library plugin](https://github.com/filamentphp/spatie-laravel-media-library-plugin)
 - [Spatie laravel sitemap](https://github.com/spatie/laravel-sitemap)
+- [Filament tiptap editor](https://github.com/awcodes/filament-tiptap-editor)
+- [Image optimizer](https://github.com/joshembling/image-optimizer)
+- [Laravel easy enum](https://github.com/sakanjo/laravel-easy-enum)
+- [Laravel easy metrics](https://github.com/sakanjo/laravel-easy-metrics)
 - [Spatie laravel responsecache](https://github.com/spatie/laravel-responsecache)
+- [Tailwind merge laravel](https://github.com/gehrisandro/tailwind-merge-laravel)
 
 Dev dependencies used in this project:
 - [Laravel Debugbar](https://github.com/barryvdh/laravel-debugbar)
