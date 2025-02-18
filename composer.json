@@ -19,6 +19,7 @@
         "aymanalhattami/filament-slim-scrollbar": "^2.0",
         "filament/filament": "^3.2",
         "filament/spatie-laravel-media-library-plugin": "^3.2",
+        "gehrisandro/tailwind-merge-laravel": "*",
         "hasnayeen/themes": "^3.0",
         "joshembling/image-optimizer": "^1.4",
         "laravel/framework": "^11.9",
