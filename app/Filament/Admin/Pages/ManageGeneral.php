@@ -135,7 +135,8 @@ final class ManageGeneral extends Page implements Forms\Contracts\HasForms
                                     ->getUploadedFileNameForStorageUsing(fn (TemporaryUploadedFile $file): string => 'og_image.png'),
                             ])
                             ->columns(2),
-                    ]),
+                    ])
+                    ->persistTabInQueryString('section'),
             ])
 
             ->statePath('data');
