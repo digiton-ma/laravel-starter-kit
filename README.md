@@ -84,6 +84,15 @@ digitoncli new my-project  --git --migrate --seed --github --org=digiton-ma
 ```
 View the [documentation](https://github.com/digiton-ma/installer) for the installer for more information on the usage.
 
+## Tips
+
+### Max file upload size
+If you encounter an error while uploading files, you may need to increase the maximum file upload size in your php.ini file.
+if the file you are trying to upload is larger than 120M and your php config supports more, 
+then checkout media-library config file and change the `max_file_size` to the desired value,
+and livewire config file and change default max file size validation rule in `temporary_file_upload -> rules` 
+from `max:122880` to your desired size.
+
 ## Main Features
 
 ### FilamentPHP
