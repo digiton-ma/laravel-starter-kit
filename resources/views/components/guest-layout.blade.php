@@ -8,33 +8,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
     <title>
-        {{ (isset($title) ? $title . ' | ' : '') . (settings()->get('general.site_name') ?? config('app.name', 'Laravel')) }}
+        {!! html_entity_decode((isset($title) ? $title . ' | ' : '') . (settings()->get('general.site_name') ?? config('app.name', 'Laravel'))) !!}
     </title>
 
-    <meta name="description" content="{{ $site_description ?? settings()->get('general.site_description') ?? '' }}">
+    <meta name="description" content="{{ $site_description ?? (settings()->get('general.site_description') ?? '') }}">
     <link rel="canonical" href="{{ url()->current() }}" />
 
     <!-- favicon -->
-    <link rel="icon" type="image/x-icon" href="{{ \Illuminate\Support\Facades\Storage::url(settings()->get('general.site_favicon')) ?? asset('assets/logos/favicon.ico') }}">
-    <link rel="icon" type="image/svg+xml" href="{{ \Illuminate\Support\Facades\Storage::url(settings()->get('general.site_favicon_svg')) ?? asset('/assets/logos/favicon.svg') }}">
-    <link rel="apple-touch-icon" sizes="180x180" href="{{ \Illuminate\Support\Facades\Storage::url(settings()->get('general.apple_touch_icon')) ?? asset('/assets/logos/apple-touch-icon.png') }}">
-
-    <!-- PWA manifest -->
-    <link rel="manifest" href="{{ asset('/manifest.json') }}">
-
-    {{-- Open Graph / Facebook --}}
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="{{ url()->current() }}">
-    <meta property="og:title" content="{{ $title ?? config('app.name', 'Laravel') }}">
-    <meta property="og:description" content="{{ $site_description ?? settings()->get('general.site_description') ?? '' }}">
-    <meta property="og:image" content="{{ $og_image ?? \Illuminate\Support\Facades\Storage::url(settings()->get('general.og_image')) ?? asset('images/og-image.jpg') }}">
+    <link rel="icon" type="image/svg+xml" href="{{ asset('/assets/logos/favicon.svg') }}">
+    <link rel="icon" type="image/png" href="{{ asset('/assets/logos/favicon.png') }}">
+    <link rel="icon" type="image/x-icon" href="{{ asset('/assets/logos/favicon.ico') }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('/assets/logos/apple-touch-icon.png') }}">
 
     {{-- Twitter --}}
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="{{ url()->current() }}">
     <meta property="twitter:title" content="{{ $title ?? config('app.name', 'Laravel') }}">
     <meta property="twitter:description" content="{{ $site_description ?? settings()->get('general.site_description') ?? '' }}">
-    <meta property="twitter:image" content="{{ $og_image ?? \Illuminate\Support\Facades\Storage::url(settings()->get('general.og_image')) ?? asset('images/og-image.jpg') }}">
+    <meta property="twitter:image" content="{{ (isset ($og_image) && !empty(trim($og_image))) ? $og_image : (settings()->get('general.og_image') ? asset('storage/' . settings()->get('general.og_image')) : asset('assets/images/og-image.jpg')) }}">
+
+    {{-- Open Graph / Facebook --}}
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ url()->current() }}">
+    <meta property="og:title" content="{{ $title ?? config('app.name', 'Laravel') }}">
+    <meta property="og:description" content="{{ $site_description ?? (settings()->get('general.site_description') ?? '') }}">
+    <meta property="og:image" content="{{ (isset ($og_image) && !empty(trim($og_image))) ? $og_image : (settings()->get('general.og_image') ? asset('storage/' . settings()->get('general.og_image')) : asset('assets/images/og-image.jpg')) }}">
 
     <!-- Custom Google font-->
     <link rel="preconnect" href="https://fonts.googleapis.com" />

@@ -26,6 +26,7 @@
         "laravel/tinker": "^2.9",
         "sakanjo/laravel-easy-enum": "^1.0",
         "sakanjo/laravel-easy-metrics": "^1.0",
+        "spatie/laravel-glide": "^3.8",
         "spatie/laravel-query-builder": "*",
         "spatie/laravel-responsecache": "^7.6",
         "spatie/laravel-sitemap": "^7.2"
@@ -52,7 +53,10 @@
             "App\\": "app/",
             "Database\\Factories\\": "database/factories/",
             "Database\\Seeders\\": "database/seeders/"
-        }
+        },
+        "files": [
+            "app/Services/helpers.php"
+        ]
     },
     "autoload-dev": {
         "psr-4": {

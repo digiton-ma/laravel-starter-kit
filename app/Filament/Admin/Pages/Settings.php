@@ -18,7 +18,7 @@ use Livewire\Features\SupportFileUploads\TemporaryUploadedFile;
 /**
  * @property Forms\ComponentContainer $form
  */
-final class ManageGeneral extends Page implements Forms\Contracts\HasForms
+final class Settings extends Page implements Forms\Contracts\HasForms
 {
     use Forms\Concerns\InteractsWithForms,
         HasUnsavedDataChangesAlert,
@@ -31,7 +31,7 @@ final class ManageGeneral extends Page implements Forms\Contracts\HasForms
 
     protected static ?string $navigationIcon = 'heroicon-o-cog-6-tooth';
 
-    protected static string $view = 'filament.admin.pages.manage-general';
+    protected static string $view = 'filament.admin.pages.settings';
 
     public static function getNavigationLabel(): string
     {
