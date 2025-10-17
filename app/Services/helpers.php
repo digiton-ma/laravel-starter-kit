@@ -45,7 +45,7 @@ if (! function_exists('glide')) {
         $outputPath = Storage::disk('public')->path($outputRelativePath);
 
         // 8. Create output dir if not exists
-        Storage::makeDirectory(config('glide.output_dir', 'manipulated'));
+        Storage::disk('public')->makeDirectory(config('glide.output_dir', 'manipulated'));
 
         // 9. Generate if not already created
         if (! file_exists($outputPath)) {
@@ -54,6 +54,6 @@ if (! function_exists('glide')) {
                 ->save($outputPath);
         }
 
-        return Storage::url($outputRelativePath);
+        return Storage::disk('public')->url($outputRelativePath);
     }
 }
