@@ -24,6 +24,7 @@
         "joshembling/image-optimizer": "^1.4",
         "laravel/framework": "^11.9",
         "laravel/tinker": "^2.9",
+        "mehdismekouar/laravel-glide-helper": "^1.0",
         "sakanjo/laravel-easy-enum": "^1.0",
         "sakanjo/laravel-easy-metrics": "^1.0",
         "spatie/laravel-glide": "^3.8",
@@ -53,10 +54,7 @@
             "App\\": "app/",
             "Database\\Factories\\": "database/factories/",
             "Database\\Seeders\\": "database/seeders/"
-        },
-        "files": [
-            "app/Services/helpers.php"
-        ]
+        }
     },
     "autoload-dev": {
         "psr-4": {
