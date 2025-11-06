@@ -35,17 +35,12 @@ final class Settings extends Page implements Forms\Contracts\HasForms
 
     public static function getNavigationLabel(): string
     {
-        return __('General Settings');
+        return __('Paramètres');
     }
 
     public function getTitle(): string|Htmlable
     {
-        return __('General Settings');
-    }
-
-    public function getSubheading(): string|Htmlable|null
-    {
-        return 'Here you can set the general settings of your site.';
+        return __('Paramètres');
     }
 
     public function mount(): void
@@ -67,35 +62,34 @@ final class Settings extends Page implements Forms\Contracts\HasForms
     {
         return $form
             ->schema([
-                Forms\Components\Tabs::make('general')
+                Forms\Components\Section::make()
                     ->schema([
                         Forms\Components\TextInput::make('general.site_name')
-                            ->label('Nom du site')
+                            ->label('Titre')
                             ->required()
                             ->maxLength(255),
 
                         Forms\Components\TextInput::make('general.site_description')
                             ->label('Meta description')
                             ->required()
-                            ->maxLength(255)
-                            ->columnSpanFull(),
+                            ->maxLength(255),
 
                         Forms\Components\TextInput::make('general.company_email')
-                            ->label('Email du site')
+                            ->label('Email')
                             ->email()
                             ->maxLength(255),
 
                         Forms\Components\TextInput::make('general.company_phone')
-                            ->label('Téléphone du site')
+                            ->label('Téléphone')
                             ->tel()
                             ->maxLength(255),
 
                         Forms\Components\TextInput::make('general.company_address')
-                            ->label('Adresse du site')
+                            ->label('Adresse')
                             ->maxLength(255),
 
                         Forms\Components\TextInput::make('general.company_location')
-                            ->label('Localisation de l\'entreprise')
+                            ->label('Localisation')
                             ->maxLength(255),
 
                         Forms\Components\FileUpload::make('general.og_image')
@@ -103,11 +97,11 @@ final class Settings extends Page implements Forms\Contracts\HasForms
                             ->image()
                             ->maxSize(256)
                             ->disk('public')
+                            ->columnSpanFull()
                             ->getUploadedFileNameForStorageUsing(fn(TemporaryUploadedFile $file): string => 'og_image.png'),
 
                     ])
-                    ->columns(2)
-                    ->persistTabInQueryString('section'),
+                    ->columns(2),
             ])
 
             ->statePath('data');
@@ -155,6 +149,7 @@ final class Settings extends Page implements Forms\Contracts\HasForms
     {
         return Action::make('save')
             ->submit('save')
+            ->label('Sauvegarder')
             ->keyBindings(['mod+s']);
     }
 }
