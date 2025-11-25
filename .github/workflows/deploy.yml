@@ -1,0 +1,58 @@
+name: Deploy script
+
+on:
+  # push:
+  #   branches:
+  #     - main
+  workflow_dispatch:
+    # inputs:
+    #   deploy:
+    #     description: 'Deploy script'
+    #     required: true
+    #     default: 'true'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: SSH Deploy to server
+        uses: appleboy/ssh-action@v0.1.7
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          port: ${{ secrets.PORT }}
+          script: |
+            set -e
+            cd ~/domains/project/app
+
+            COMPOSER_JSON_BEFORE=$(md5sum composer.json 2>/dev/null || echo "")
+            COMPOSER_LOCK_BEFORE=$(md5sum composer.lock 2>/dev/null || echo "")
+
+            git reset --hard
+            git clean -fd
+
+            git remote set-url origin git@github.com:digiton-ma/project.git
+
+            git fetch origin main
+            git reset --hard origin/main
+
+            COMPOSER_JSON_AFTER=$(md5sum composer.json 2>/dev/null || echo "")
+            COMPOSER_LOCK_AFTER=$(md5sum composer.lock 2>/dev/null || echo "")
+
+            if [ "$COMPOSER_JSON_BEFORE" != "$COMPOSER_JSON_AFTER" ] || [ "$COMPOSER_LOCK_BEFORE" != "$COMPOSER_LOCK_AFTER" ]; then
+                echo "Composer files changed, reinstalling dependencies..."
+                rm -rf vendor/
+                composer2 install --no-interaction --prefer-dist --optimize-autoloader
+                ~/vendors/setup.sh
+            else
+                echo "No composer changes detected, skipping reinstall"
+            fi
+
+            php artisan optimize:clear
+            php artisan migrate --force
+            php artisan filament:assets
