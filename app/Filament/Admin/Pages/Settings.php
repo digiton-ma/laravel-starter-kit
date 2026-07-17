@@ -138,14 +138,14 @@ final class Settings extends Page implements Forms\Contracts\HasForms
     /**
      * @return array<Action | ActionGroup>
      */
-    public function getFormActions(): array
+    protected function getFormActions(): array
     {
         return [
             $this->getSaveFormAction(),
         ];
     }
 
-    public function getSaveFormAction(): Action
+    protected function getSaveFormAction(): Action
     {
         return Action::make('save')
             ->submit('save')
